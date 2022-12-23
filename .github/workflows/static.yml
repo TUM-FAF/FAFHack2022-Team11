@@ -40,7 +40,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-      - name: Deploy to GitHub Pages
+      - name: Add Secrets
         run: echo "I know what the secret token is!"
         env:
           APIUSERS: ${{ secrets.APIUSERS }}
