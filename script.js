@@ -46,8 +46,9 @@ if (htmlEncode($("#password").val())==value.password &&htmlEncode($("#username")
 document.addEventListener('DOMContentLoaded', function () {
 
 
- // document.getElementById("sel2").style.display='none';
-
+  document.getElementById("sel2").style.display='none';
+  document.getElementById("sel3").style.display='none';
+  document.getElementById("sel4").style.display='none';
 
 
   addtasks();
@@ -71,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         
-  show('Page2','Page1');
+  show('Page1','Page2');
   var modeSwitch = document.querySelector('.mode-switch');
 
   modeSwitch.addEventListener('click', function () {                     document.documentElement.classList.toggle('dark');
@@ -141,4 +142,19 @@ student+='<div class="star-checkbox">'+
 $('#aaaaaa').append(student);
   });
 
+}
+
+
+function sel1on(){
+  document.getElementById("sel1").style.display='block';
+  document.getElementById("sel2").style.display='none';
+  document.getElementById("sel3").style.display='none';
+  document.getElementById("sel4").style.display='none';
+}
+
+function sel2on(){
+  document.getElementById("sel1").style.display='none';
+  document.getElementById("sel2").style.display='block';
+  document.getElementById("sel3").style.display='none';
+  document.getElementById("sel4").style.display='none';
 }
