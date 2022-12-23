@@ -11,7 +11,7 @@ function show(shown, hidden) {
   }
 
   function loginpassed (){
-    console.log("looged in");
+    console.log("looged in trying");
     $.getJSON("https://62adc88a645d00a28aff9ee5.mockapi.io//users", 
             function (data) {
           var student = '';
