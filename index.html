@@ -2,13 +2,46 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Project Management Dashboard UI</title>
+  <title>Hackathon 2022 Team 11</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="./style.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
 </head>
 <body>
 <!-- partial:index.partial.html -->
+
+<div id="Page1">
+
+  <div class="container">
+    <div class="left">
+      <div class="login">Login</div>
+      <div class="eula">By logging in you agree to the ridiculously long terms that you didn't bother to read</div>
+    </div>
+    <div class="right">
+      <svg viewBox="0 0 320 300">
+        <defs>
+          
+        </defs>
+        <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
+      </svg>
+      <div class="form">
+        <label for="email">Email</label>
+        <input type="email" id="email">
+        <label for="password">Password</label>
+        <input type="password" id="password">
+        <input type="submit" id="submit" onclick="loginpassed()" value="Submit">
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+<div id="Page2">
 <div class="app-container">
   <div class="app-header">
     <div class="app-header-left">
@@ -460,7 +493,8 @@
 </div>
 </div>
 <!-- partial -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script  src="./script.js"></script>
-
+</div>
 </body>
 </html>
