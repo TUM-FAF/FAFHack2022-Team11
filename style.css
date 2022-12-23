@@ -10,12 +10,7 @@
 ::-moz-selection {
   background: #2D2F36;
 }
-body {
-  background: white;
-  font-family: 'Inter UI', sans-serif;
-  margin: 0;
-  padding: 20px;
-}
+
 .page {
   background: #e2e2e5;
   display: flex;
@@ -86,16 +81,7 @@ body {
     max-height: 350px;
   }
 }
-svg {
-  position: absolute;
-  width: 320px;
-}
-path {
-  fill: none;
-  stroke: url(#linearGradient);;
-  stroke-width: 4;
-  stroke-dasharray: 240 1386;
-}
+
 .form {
   margin: 40px;
   position: absolute;
