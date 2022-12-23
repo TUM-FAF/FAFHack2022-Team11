@@ -18,7 +18,3 @@ Key features:
 
 
 [https://mockapi.io/projects/62adc88a645d00a28aff9ee6](https://mockapi.io/projects/62adc88a645d00a28aff9ee6)
-
-
-bs4: https://github.com/wention/BeautifulSoup4
-requestpy: https://github.com/psf/requests
