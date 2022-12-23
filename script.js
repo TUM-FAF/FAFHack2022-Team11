@@ -1,3 +1,17 @@
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+
+
+
 var kindadatabase ='';
 var  usernamekeep='';
 var dataazi='';
@@ -50,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='none';
 
-  //document.getElementById("hidenelemet").style.display='none';
+  document.getElementById("hidenelemet").style.display = "none";
 
   addtasks();
 
