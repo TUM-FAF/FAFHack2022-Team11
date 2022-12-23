@@ -1,3 +1,6 @@
+//const APIUSERS = ;
+
+
 var kindadatabase ='';
 function show(shown, hidden) {
     document.getElementById(shown).style.display='block';
@@ -12,7 +15,7 @@ function show(shown, hidden) {
 
   function loginpassed (){
     console.log("looged in");
-    $.getJSON(process.env.APIUSERS, 
+    $.getJSON(env.APIUSERS, 
             function (data) {
           var student = '';
           console.log(data);
