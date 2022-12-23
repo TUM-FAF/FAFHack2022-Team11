@@ -40,7 +40,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-     - name: Add Secrets 
-         env:
-          APIUSERS: ${{ secrets.APIUSERS }}
+      - name: Add Secrets 
+        env:
+        APIUSERS: ${{ secrets.APIUSERS }}
       
