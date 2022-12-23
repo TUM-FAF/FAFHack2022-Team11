@@ -72,6 +72,3 @@ def main():
     json_object = json.dumps(dictlist, indent=4)
     with open("vacancies.json", "w") as f:
         f.write(json_object)
-
-
-main()
