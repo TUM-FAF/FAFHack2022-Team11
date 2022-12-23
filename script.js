@@ -11,7 +11,7 @@ signInButton.addEventListener('click', () => {
 });
 
 
-
+var lastid='';
 var kindadatabase ='';
 var  usernamekeep='';
 var dataazi='';
@@ -37,7 +37,7 @@ function show(shown, hidden) {
           
           $.each(data, function (key, value) {
 if (htmlEncode($("#password").val())==value.password &&htmlEncode($("#username").val())==value.username){
-  
+  lastid=value.id;
   usernamekeep=value.name+" "+value.surname;
   spawnusernamekeep.textContent = usernamekeep;
   document.getElementById("userimage").src=value.avatar;
@@ -168,6 +168,7 @@ function sel1on(){
   document.getElementById("sel2").style.display='none';
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='none';
+  document.getElementById("taskmess").style.display='block';
 }
 
 function sel2on(){
@@ -175,16 +176,49 @@ function sel2on(){
   document.getElementById("sel2").style.display='block';
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='none';
+  document.getElementById("taskmess").style.display='block';
 }
 function sel3on(){
   document.getElementById("sel1").style.display='none';
   document.getElementById("sel2").style.display='none';
   document.getElementById("sel3").style.display='block';
   document.getElementById("sel4").style.display='none';
+  document.getElementById("taskmess").style.display='block';
 }
 function sel4on(){
   document.getElementById("sel1").style.display='none';
   document.getElementById("sel2").style.display='none';
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='block';
+  document.getElementById("taskmess").style.display='none';
+}
+var score = parseInt(scoreStr.lastid);
+score ++;
+
+function singupform(){
+  var datachanger = {
+    companianame: '',
+    name: '',
+    present: '',
+    id: '',
+    name: '',
+    surname: '',
+    avatar: 'https://avatars.githubusercontent.com/u/3178900?s=200&v=4',
+    gender: 'Hip Hop',
+    description: '',
+    location_latitude: '0',
+    lacation_longitude: '0',
+    username: htmlEncode($("#useraddform").val()),
+    email: '',
+    password: htmlEncode($("#passaddform").val()),
+    id: score
+    }
+  
+  //datachanger.username=this.htmlEncode($("#useraddform").val());
+  console.log(datachanger);
+ // datachanger.password=htmlEncode($("#passaddform").val());
+  axios.post(`https://62adc88a645d00a28aff9ee5.mockapi.io//users`, datachanger);
+
+
+
 }
