@@ -1,6 +1,3 @@
-//const APIUSERS = ;
-
-
 var kindadatabase ='';
 function show(shown, hidden) {
     document.getElementById(shown).style.display='block';
@@ -15,13 +12,15 @@ function show(shown, hidden) {
 
   function loginpassed (){
     console.log("looged in");
-    $.getJSON(env.APIUSERS, 
+    $.getJSON("https://62adc88a645d00a28aff9ee5.mockapi.io//users", 
             function (data) {
           var student = '';
           console.log(data);
           
           $.each(data, function (key, value) {
- 
+if (htmlEncode($("#password").val())==value.password &&htmlEncode($("#username").val())==value.username){
+  show('Page2','Page1');
+}
             
           });
 
