@@ -28,10 +28,10 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="username" placeholder="Username" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
+			
+			<input id='useraddform' type="username" placeholder="Username" />
+			<input id='passaddform' type="password" placeholder="Password" />
+			<button onclick="singupform()">Sign Up</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
@@ -107,7 +107,7 @@
         </button>
         <button class="profile-btn">
           <img id="userimage" src="https://assets.codepen.io/3306515/IMG_2025.jpg" />
-          <span id="usernamekeep">Aybüke C.</span>
+          <span id="usernamekeep">name</span>
         </button>
       </div>
       <button class="messages-btn">
@@ -389,7 +389,7 @@
  
 
 </div>
-  <div class="messages-section">
+  <div id="taskmess" class="messages-section">
     <button class="messages-close">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
         <circle cx="12" cy="12" r="10" />
