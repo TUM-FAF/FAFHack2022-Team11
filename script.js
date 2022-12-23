@@ -158,3 +158,15 @@ function sel2on(){
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='none';
 }
+function sel3on(){
+  document.getElementById("sel1").style.display='none';
+  document.getElementById("sel2").style.display='none';
+  document.getElementById("sel3").style.display='block';
+  document.getElementById("sel4").style.display='none';
+}
+function sel4on(){
+  document.getElementById("sel1").style.display='none';
+  document.getElementById("sel2").style.display='none';
+  document.getElementById("sel3").style.display='none';
+  document.getElementById("sel4").style.display='block';
+}
