@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='none';
 
-  document.getElementById("hidenelemet").style.display = "none";
+  //document.getElementById("hidenelemet").style.display = "none";
 
   addtasks();
 
@@ -80,8 +80,12 @@ document.addEventListener('DOMContentLoaded', function () {
   dataazi= currentDatey+ " "+ month+", "+currentDated
   var element1 = document.getElementById("timetoday");
         element1.innerHTML =dataazi;
-
-
+        var element2 = document.getElementById("timetoday2");
+        element2.innerHTML =dataazi;
+        var element3 = document.getElementById("timetoday3");
+        element3.innerHTML =dataazi;
+        var element4 = document.getElementById("timetoday4");
+        element4.innerHTML =dataazi;
 
 
 
