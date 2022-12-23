@@ -1,4 +1,40 @@
+var kindadatabase ='';
+function show(shown, hidden) {
+    document.getElementById(shown).style.display='block';
+    document.getElementById(hidden).style.display='none';
+    return false;
+  }
+
+
+  function htmlEncode (value){
+    return $('<div/>').text(value).html();
+  }
+
+  function loginpassed (){
+    console.log("looged in");
+    $.getJSON(process.env.APIUSERS, 
+            function (data) {
+          var student = '';
+          console.log(data);
+          
+          $.each(data, function (key, value) {
+ 
+            
+          });
+
+         
+         
+       
+    
+        });
+  }
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
+
+  show('Page1','Page2');
   var modeSwitch = document.querySelector('.mode-switch');
 
   modeSwitch.addEventListener('click', function () {                     document.documentElement.classList.toggle('dark');
