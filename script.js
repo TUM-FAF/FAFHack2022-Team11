@@ -523,7 +523,7 @@ student227 = '';
   */
  
 }
-else alert("please input all tata required")
+else alert("please input all data required")
 }
 function addmess(){
 
