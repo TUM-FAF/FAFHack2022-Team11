@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById("sel2").style.display='none';
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='none';
-
+  document.getElementById("sel5").style.display='none';
   document.getElementById("hidenelemet").style.display = "none";
 
   addtasks();
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         
-  show('Page1','Page2');
+  show('Page2','Page1');
   var modeSwitch = document.querySelector('.mode-switch');
 
   modeSwitch.addEventListener('click', function () {                     document.documentElement.classList.toggle('dark');
@@ -202,6 +202,11 @@ else colorbgval='ff672b';
   '<div class="project-box" style="background-color: #'+colorbgval+'">'+
     
 '<div class="project-box-content-header">'+
+'<div class="project-box-header">'+
+'<span>'+value3.date.slice(0, 10)+'</span>'+
+
+'</div>'+
+
   '<p class="box-content-header">'+value3.name+'</p>'+
   '<p class="box-content-subheader">'+value3.orgranization+'</p>'+
  
@@ -281,6 +286,7 @@ function sel1on(){
   document.getElementById("sel2").style.display='none';
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='none';
+  document.getElementById("sel5").style.display='none';
   document.getElementById("taskmess").style.display='block';
 }
 
@@ -289,6 +295,7 @@ function sel2on(){
   document.getElementById("sel2").style.display='block';
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='none';
+  document.getElementById("sel5").style.display='none';
   document.getElementById("taskmess").style.display='block';
 }
 function sel3on(){
@@ -296,6 +303,7 @@ function sel3on(){
   document.getElementById("sel2").style.display='none';
   document.getElementById("sel3").style.display='block';
   document.getElementById("sel4").style.display='none';
+  document.getElementById("sel5").style.display='none';
   document.getElementById("taskmess").style.display='block';
 }
 function sel4on(){
@@ -303,7 +311,16 @@ function sel4on(){
   document.getElementById("sel2").style.display='none';
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='block';
+  document.getElementById("sel5").style.display='none';
   document.getElementById("taskmess").style.display='none';
+}
+function addnewthing(){
+  document.getElementById("sel1").style.display='none';
+  document.getElementById("sel2").style.display='none';
+  document.getElementById("sel3").style.display='none';
+  document.getElementById("sel4").style.display='none';
+  document.getElementById("sel5").style.display='block';
+  document.getElementById("taskmess").style.display='block';
 }
 var score = parseInt(lastid);
 score ++;
