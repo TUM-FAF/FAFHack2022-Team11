@@ -10,6 +10,14 @@ signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
 
+
+var jobtaskstatus='';
+var eventscountjob='';
+var jobcountcol='';
+var voltaskstatus='';
+var elsetaskstatus='';
+var eventscountvol='';
+var volunteeringcountcol='';
 var colorbgval='';
 var lastid='';
 var kindadatabase ='';
@@ -136,45 +144,7 @@ function addtasks(){
 
 
 
-  $.getJSON("vacancies.json", 
-  function (data2) {
-var student22 = '';
-console.log(data2);
-
-
-$.each(data2, function (key, value2) {
-
-
-
-  student22+=
-  ' <div class="project-box-wrapper">'+
-  '<div class="project-box" style="background-color: #f3f6fd;">'+
-    
-'<div class="project-box-content-header">'+
-  '<p class="box-content-header">'+value2.topic+' | '+value2.worktime+'</p>'+
-  '<p class="box-content-subheader">'+value2.location+'</p>'+
-  '<p style="text-align: left;" >'+'experience - '+value2.experience+'</p>'+
-  '<p style="text-align: left;" >'+'salary - '+value2.salary+'</p>'+
-  '<p style="text-align: left;" >'+'studies -'+value2.studies+'</p>'+
-  '</div>'+
-
-'<div class="project-box-footer">'+
-  '<div class="participants">'+
-    
- ' </div>'+
-  '<div class="days-left" style="color: #ff942e;">'+
-   ' '+value2.employer+''+
-  '</div>'+
-'</div>'+
-'</div>'+
-'</div>';
-  student22 += '';
-
-
-});
-
-$('#rebdiv').append(student22);
-  });
+  
 
 
 
@@ -185,51 +155,9 @@ $('#rebdiv').append(student22);
 
 
 
-
-  $.getJSON("https://62adc88a645d00a28aff9ee5.mockapi.io//volunteering", 
-  function (data3) {
-var student23 = '';
-console.log(data3);
-
-
-$.each(data3, function (key, value3) {
-
-
-if(value3.type=="event"){colorbgval='ff4150'}
-else colorbgval='ff672b';
-  student23+=
-  ' <div class="project-box-wrapper">'+
-  '<div class="project-box" style="background-color: #'+colorbgval+'">'+
-    
-'<div class="project-box-content-header">'+
-'<div class="project-box-header">'+
-'<span>'+value3.date.slice(0, 10)+'</span>'+
-
-'</div>'+
-
-  '<p class="box-content-header">'+value3.name+'</p>'+
-  '<p class="box-content-subheader">'+value3.orgranization+'</p>'+
- 
-  '</div>'+
-
-'<div class="project-box-footer">'+
-  '<div class="participants">'+
-    
- ' </div>'+
-  '<div class="days-left" style="color: #ff942e;">'+
-   ' '+value3.type+''+
-  '</div>'+
-'</div>'+
-'</div>'+
-'</div>';
-  student23 += '';
-
-
-});
-
-$('#voldiv').append(student23);
-  });
-
+refreshjob();
+ refreshvol();
+ refreshstud();
 
 
 
@@ -288,6 +216,7 @@ function sel1on(){
   document.getElementById("sel4").style.display='none';
   document.getElementById("sel5").style.display='none';
   document.getElementById("taskmess").style.display='block';
+  refreshjob();
 }
 
 function sel2on(){
@@ -297,6 +226,8 @@ function sel2on(){
   document.getElementById("sel4").style.display='none';
   document.getElementById("sel5").style.display='none';
   document.getElementById("taskmess").style.display='block';
+  refreshvol();
+
 }
 function sel3on(){
   document.getElementById("sel1").style.display='none';
@@ -305,6 +236,7 @@ function sel3on(){
   document.getElementById("sel4").style.display='none';
   document.getElementById("sel5").style.display='none';
   document.getElementById("taskmess").style.display='block';
+  refreshstud();
 }
 function sel4on(){
   document.getElementById("sel1").style.display='none';
@@ -350,5 +282,230 @@ function singupform(){
   axios.post(`https://62adc88a645d00a28aff9ee5.mockapi.io//users`, datachanger);
 
 
+
+}
+
+
+
+function refreshvol(){
+  voltaskstatus='';
+  for (let i = 0; i < 100; i++) {
+    $('#voldiv :first').detach();
+    $('#bbbbbb :first').detach();
+}
+for (let i = 0; i < 100; i++) {
+  $('#bbbbbb :first').detach();
+}
+  $.getJSON("https://62adc88a645d00a28aff9ee5.mockapi.io//volunteering", 
+  function (data3) {
+var student23 = '';
+console.log(data3);
+eventscountvol=0;
+volunteeringcountcol=0;
+
+$.each(data3, function (key, value3) {
+
+if(value3.type=='event'){eventscountvol++}
+else volunteeringcountcol++;
+if(value3.type=="event"){colorbgval='ff4150'}
+else colorbgval='ff672b';
+  student23+=
+  ' <div class="project-box-wrapper">'+
+  '<div class="project-box" style="background-color: #'+colorbgval+'">'+
+    
+'<div class="project-box-content-header">'+
+'<div class="project-box-header">'+
+'<span>'+value3.date.slice(0, 10)+'</span>'+
+
+'</div>'+
+
+  '<p class="box-content-header">'+value3.name+'</p>'+
+  '<p class="box-content-subheader">'+value3.orgranization+'</p>'+
+ 
+  '</div>'+
+
+'<div class="project-box-footer">'+
+  '<div class="participants">'+
+    
+ ' </div>'+
+  '<div class="days-left" style="color: #ff942e;">'+
+   ' '+value3.type+''+
+  '</div>'+
+'</div>'+
+'</div>'+
+'</div>';
+  student23 += '';
+
+
+});
+
+$('#voldiv').append(student23);
+
+voltaskstatus+=
+  '<div class="item-status">'+
+  '<span class="status-number">'+eventscountvol+'</span>'+
+  '<span class="status-type">Events</span>'+
+'</div>'+
+'<div class="item-status">'+
+  '<span class="status-number">'+volunteeringcountcol+'</span>'+
+  '<span class="status-type">Volunteering</span>'+
+'</div>'+
+'<div class="item-status">'+
+ ' <span class="status-number">'+(eventscountvol+volunteeringcountcol)+'</span>'+
+  '<span class="status-type">Total Opportunities</span>'+
+'</div>';
+
+
+
+$('#bbbbbb').append(voltaskstatus);
+  });
+
+  
+
+}
+
+function refreshjob(){
+  jobtaskstatus='';
+  for (let i = 0; i < 100; i++) {
+    $('#rebdiv :first').detach();
+    $('#cccccc :first').detach();
+}
+  $.getJSON("vacancies.json", 
+  function (data2) {
+var student22 = '';
+console.log(data2);
+eventscountjob=0;
+jobcountcol=0;
+elsetaskstatus=0;
+$.each(data2, function (key, value2) {
+
+  if(value2.worktime=='Full-time (8 ore)'){eventscountjob++}
+  else if(value2.worktime=='Flexibil'){jobcountcol++}
+  else  elsetaskstatus++;
+  
+
+  student22+=
+  ' <div class="project-box-wrapper">'+
+  '<div class="project-box" style="background-color: #f3f6fd;">'+
+    
+'<div class="project-box-content-header">'+
+  '<p class="box-content-header">'+value2.topic+' | '+value2.worktime+'</p>'+
+  '<p class="box-content-subheader">'+value2.location+'</p>'+
+  '<p style="text-align: left;" >'+'experience - '+value2.experience+'</p>'+
+  '<p style="text-align: left;" >'+'salary - '+value2.salary+'</p>'+
+  '<p style="text-align: left;" >'+'studies -'+value2.studies+'</p>'+
+  '</div>'+
+
+'<div class="project-box-footer">'+
+  '<div class="participants">'+
+    
+ ' </div>'+
+  '<div class="days-left" style="color: #ff942e;">'+
+   ' '+value2.employer+''+
+  '</div>'+
+'</div>'+
+'</div>'+
+'</div>';
+  student22 += '';
+
+
+});
+
+$('#rebdiv').append(student22);
+
+
+jobtaskstatus+=
+  '<div class="item-status">'+
+  '<span class="status-number">'+eventscountjob+'</span>'+
+  '<span class="status-type">Full Time</span>'+
+'</div>'+
+'<div class="item-status">'+
+  '<span class="status-number">'+jobcountcol+'</span>'+
+  '<span class="status-type">Flexibil</span>'+
+'</div>'+
+'<div class="item-status">'+
+ ' <span class="status-number">'+(eventscountjob+jobcountcol+elsetaskstatus)+'</span>'+
+  '<span class="status-type">Total Opportunities</span>'+
+'</div>';
+
+
+
+$('#cccccc').append(jobtaskstatus);
+
+  });
+
+}
+
+
+
+function addstudy(){
+  var datachanger22 = {
+    name: "",
+    task: "",
+    due: "",
+    autor: " ",
+    id: ""
+    }
+  
+  //datachanger.username=this.htmlEncode($("#useraddform").val());
+  console.log(datachanger22);
+ // datachanger.password=htmlEncode($("#passaddform").val());
+  axios.post(`https://62adc88a645d00a28aff9ee5.mockapi.io//study`, datachanger22);
+
+
+
+}
+
+
+function refreshstud(){
+  jobtaskstatus='';
+  for (let i = 0; i < 100; i++) {
+    $('#studdiv :first').detach();
+    $('#dddddd :first').detach();
+}
+  $.getJSON("https://62adc88a645d00a28aff9ee5.mockapi.io//study", 
+  function (data4) {
+var student227 = '';
+
+$.each(data4, function (key, value4) {
+
+  
+
+  student227+=
+  ' <div class="project-box-wrapper">'+
+  '<div class="project-box" style="background-color: #f3f6fd;">'+
+  
+  '<div class="project-box-header">'+
+  '<span>'+value4.due.slice(0, 10)+'</span>'+
+  
+  '</div>'+
+  
+'<div class="project-box-content-header">'+
+  '<p class="box-content-header">'+value4.name+'</p>'+
+  '<p class="box-content-subheader">'+value4.task+'</p>'+
+
+  '</div>'+
+
+'<div class="project-box-footer">'+
+  '<div class="participants">'+
+    
+ ' </div>'+
+  '<div class="days-left" style="color: #ff942e;">'+
+   ' '+value4.autor+''+
+  '</div>'+
+'</div>'+
+'</div>'+
+'</div>';
+  student227 += '';
+
+
+});
+
+$('#studdiv').append(student227);
+
+
+
+
+  });
 
 }
