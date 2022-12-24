@@ -765,7 +765,7 @@ button, a {
   position: relative;
 }
 .project-boxes.jsListView .project-box > * {
-  margin-right: 24px;
+  margin-right: 300px;
 }
 .project-boxes.jsListView .more-wrapper {
   position: absolute;
@@ -774,7 +774,7 @@ button, a {
 }
 .project-boxes.jsListView .project-box-content-header {
   order: 1;
-  max-width: 120px;
+  max-width: 100%;
 }
 .project-boxes.jsListView .project-box-header {
   order: 2;
@@ -920,7 +920,7 @@ button, a {
   background-color: rgba(255, 255, 255, 0.6);
   width: calc(100% + 32px);
   top: 0;
-  left: -16px;
+  
   height: 0px;
 }
 
