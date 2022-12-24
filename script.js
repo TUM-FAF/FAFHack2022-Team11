@@ -10,7 +10,7 @@ signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
 
-
+var keedimportanid='';
 var jobtaskstatus='';
 var eventscountjob='';
 var jobcountcol='';
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         
-  show('Page2','Page1');
+  show('Page1','Page2');
   var modeSwitch = document.querySelector('.mode-switch');
 
   modeSwitch.addEventListener('click', function () {                     document.documentElement.classList.toggle('dark');
@@ -439,18 +439,27 @@ $('#cccccc').append(jobtaskstatus);
 
 
 function addstudy(){
-  var datachanger22 = {
-    name: "",
-    task: "",
-    due: "",
-    autor: " ",
-    id: ""
+
+
+  var score222 = parseInt(keedimportanid);
+  score222 ++;
+
+
+  var datachanger2222 = {
+    name: htmlEncode($("#adddname").val()),
+    task: htmlEncode($("#adddtask").val()),
+    due: htmlEncode($("#addddue").val()),
+    autor:usernamekeep ,
+    id: score222
     }
   
+
+
+
   //datachanger.username=this.htmlEncode($("#useraddform").val());
-  console.log(datachanger22);
+  console.log(datachanger2222);
  // datachanger.password=htmlEncode($("#passaddform").val());
-  axios.post(`https://62adc88a645d00a28aff9ee5.mockapi.io//study`, datachanger22);
+  axios.post(`https://62adc88a645d00a28aff9ee5.mockapi.io//study`, datachanger2222);
 
 
 
@@ -470,7 +479,7 @@ var student227 = '';
 $.each(data4, function (key, value4) {
 
   
-
+  keedimportanid=value4.id;
   student227+=
   ' <div class="project-box-wrapper">'+
   '<div class="project-box" style="background-color: #f3f6fd;">'+
@@ -479,7 +488,7 @@ $.each(data4, function (key, value4) {
   '<span>'+value4.due.slice(0, 10)+'</span>'+
   
   '</div>'+
-  
+ 
 '<div class="project-box-content-header">'+
   '<p class="box-content-header">'+value4.name+'</p>'+
   '<p class="box-content-subheader">'+value4.task+'</p>'+
