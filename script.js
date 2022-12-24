@@ -10,7 +10,7 @@ signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
 
-
+var colorbgval='';
 var lastid='';
 var kindadatabase ='';
 var  usernamekeep='';
@@ -129,6 +129,119 @@ document.addEventListener('DOMContentLoaded', function () {
 function addtasks(){
 
 
+
+
+
+
+
+
+
+  $.getJSON("vacancies.json", 
+  function (data2) {
+var student22 = '';
+console.log(data2);
+
+
+$.each(data2, function (key, value2) {
+
+
+
+  student22+=
+  ' <div class="project-box-wrapper">'+
+  '<div class="project-box" style="background-color: #f3f6fd;">'+
+    
+'<div class="project-box-content-header">'+
+  '<p class="box-content-header">'+value2.topic+' | '+value2.worktime+'</p>'+
+  '<p class="box-content-subheader">'+value2.location+'</p>'+
+  '<p style="text-align: left;" >'+'experience - '+value2.experience+'</p>'+
+  '<p style="text-align: left;" >'+'salary - '+value2.salary+'</p>'+
+  '<p style="text-align: left;" >'+'studies -'+value2.studies+'</p>'+
+  '</div>'+
+
+'<div class="project-box-footer">'+
+  '<div class="participants">'+
+    
+ ' </div>'+
+  '<div class="days-left" style="color: #ff942e;">'+
+   ' '+value2.employer+''+
+  '</div>'+
+'</div>'+
+'</div>'+
+'</div>';
+  student22 += '';
+
+
+});
+
+$('#rebdiv').append(student22);
+  });
+
+
+
+
+
+
+
+
+
+
+
+  $.getJSON("https://62adc88a645d00a28aff9ee5.mockapi.io//volunteering", 
+  function (data3) {
+var student23 = '';
+console.log(data3);
+
+
+$.each(data3, function (key, value3) {
+
+
+if(value3.type=="event"){colorbgval='ff4150'}
+else colorbgval='ff672b';
+  student23+=
+  ' <div class="project-box-wrapper">'+
+  '<div class="project-box" style="background-color: #'+colorbgval+'">'+
+    
+'<div class="project-box-content-header">'+
+  '<p class="box-content-header">'+value3.name+'</p>'+
+  '<p class="box-content-subheader">'+value3.orgranization+'</p>'+
+ 
+  '</div>'+
+
+'<div class="project-box-footer">'+
+  '<div class="participants">'+
+    
+ ' </div>'+
+  '<div class="days-left" style="color: #ff942e;">'+
+   ' '+value3.type+''+
+  '</div>'+
+'</div>'+
+'</div>'+
+'</div>';
+  student23 += '';
+
+
+});
+
+$('#voldiv').append(student23);
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   $.getJSON("https://62adc88a645d00a28aff9ee5.mockapi.io//tasks", 
   function (data) {
 var student = '';
@@ -192,7 +305,7 @@ function sel4on(){
   document.getElementById("sel4").style.display='block';
   document.getElementById("taskmess").style.display='none';
 }
-var score = parseInt(scoreStr.lastid);
+var score = parseInt(lastid);
 score ++;
 
 function singupform(){
