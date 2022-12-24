@@ -10,6 +10,7 @@ signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
 
+
 var keedimportanid='';
 var jobtaskstatus='';
 var eventscountjob='';
@@ -40,7 +41,7 @@ function show(shown, hidden) {
     $.getJSON("https://62adc88a645d00a28aff9ee5.mockapi.io//users", 
             function (data) {
           var student = '';
-          console.log(data);
+         
          
           
           $.each(data, function (key, value) {
@@ -178,7 +179,7 @@ refreshjob();
   $.getJSON("https://62adc88a645d00a28aff9ee5.mockapi.io//tasks", 
   function (data) {
 var student = '';
-console.log(data);
+
 
 
 $.each(data, function (key, value) {
@@ -277,11 +278,14 @@ function singupform(){
     }
   
   //datachanger.username=this.htmlEncode($("#useraddform").val());
-  console.log(datachanger);
+
+  container.classList.remove("right-panel-active");
  // datachanger.password=htmlEncode($("#passaddform").val());
+ if(datachanger.username!=''){
   axios.post(`https://62adc88a645d00a28aff9ee5.mockapi.io//users`, datachanger);
 
-
+}
+else alert("input username and password");
 
 }
 
@@ -299,7 +303,7 @@ for (let i = 0; i < 100; i++) {
   $.getJSON("https://62adc88a645d00a28aff9ee5.mockapi.io//volunteering", 
   function (data3) {
 var student23 = '';
-console.log(data3);
+
 eventscountvol=0;
 volunteeringcountcol=0;
 
@@ -373,7 +377,7 @@ function refreshjob(){
   $.getJSON("vacancies.json", 
   function (data2) {
 var student22 = '';
-console.log(data2);
+
 eventscountjob=0;
 jobcountcol=0;
 elsetaskstatus=0;
@@ -457,7 +461,7 @@ function addstudy(){
 
 
   //datachanger.username=this.htmlEncode($("#useraddform").val());
-  console.log(datachanger2222);
+ 
  // datachanger.password=htmlEncode($("#passaddform").val());
   axios.post(`https://62adc88a645d00a28aff9ee5.mockapi.io//study`, datachanger2222);
 
