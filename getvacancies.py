@@ -37,18 +37,18 @@ def main():
                                                   "text-gray-700"})]
 
         keywords = {
-            "IT": ["Java", "C", "Python", "API", "Web", "WEB", ".Net", "JavaScript", "HTML", "CSS"],
+            "IT": ["Java", "C", "Python", "Developer", "Android", "IT", "API", "Web", "WEB", ".Net", "JavaScript",
+                   "HTML", "CSS", "PHP", "Developer", "Network", "Engineer"],
             "Medicine": ["spital", "doctor", "pacienti", "clinica", "medic", "medical"],
-            "Languages": ["traduceri", "germana", "japoneza", "araba", "italiana"],
-            "Management": ["manager", "director", "administrare"]
+            "Management": ["manager", "director", "administrare"],
+            "Languages": ["engleza", "italiana", "germana", "spaniola", "japoneza", "araba", "traduceri"]
         }
 
         def gettopic(text, keywords):
             words = text.split(" ")
-            ans = []
             for i in words:
                 for j in keywords:
-                    if i in j:
+                    if i in keywords[j]:
                         return j
 
         topic = gettopic(vacancytxt, keywords)
@@ -72,3 +72,6 @@ def main():
     json_object = json.dumps(dictlist, indent=4)
     with open("vacancies.json", "w") as f:
         f.write(json_object)
+
+
+main()
