@@ -171,6 +171,7 @@ refreshjob();
 
 
 
+ cddchat();
 
 
 
@@ -182,12 +183,19 @@ refreshjob();
 
 
 
+  
 
+}
+
+function cddchat(){
   $.getJSON("https://62adc88a645d00a28aff9ee5.mockapi.io//tasks", 
   function (data) {
 var student = '';
 
-
+for (let i = 0; i < 100; i++) {
+  $('#aaaaaa :first').detach();
+  
+}
 
 $.each(data, function (key, value) {
   student+='<div class="message-box">';
@@ -213,9 +221,7 @@ student+='<div class="star-checkbox">'+
 
 $('#aaaaaa').append(student);
   });
-
 }
-
 
 function sel1on(){
   document.getElementById("sel1").style.display='block';
@@ -553,7 +559,8 @@ console.log(datachanger2222);
   //datachanger.username=this.htmlEncode($("#useraddform").val());
  
  // datachanger.password=htmlEncode($("#passaddform").val());
-  axios.post(`https://62adc88a645d00a28aff9ee5.mockapi.io//study`, datachanger2222);
+  axios.post(`https://62adc88a645d00a28aff9ee5.mockapi.io//tasks`, datachanger2222);
+  cddchat();
   document.getElementById("needtohideit").style.display='none';
   document.getElementById("firstlyshowform").style.display='block';
 }
