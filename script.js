@@ -9,8 +9,7 @@ signUpButton.addEventListener('click', () => {
 signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
-
-
+var keepidverryimp='';
 var keedimportanid='';
 var jobtaskstatus='';
 var eventscountjob='';
@@ -38,6 +37,7 @@ function show(shown, hidden) {
 
   function loginpassed (){
     console.log("looged in trying");
+    if (htmlEncode($("#password").val())!='' &&htmlEncode($("#username").val())!=''){
     $.getJSON("https://62adc88a645d00a28aff9ee5.mockapi.io//users", 
             function (data) {
           var student = '';
@@ -45,10 +45,11 @@ function show(shown, hidden) {
          
           
           $.each(data, function (key, value) {
-if (htmlEncode($("#password").val())==value.password &&htmlEncode($("#username").val())==value.username){
+if (htmlEncode($("#password").val())==value.password && htmlEncode($("#username").val())==value.username){
   lastid=value.id;
   usernamekeep=value.name+" "+value.surname;
   spawnusernamekeep.textContent = usernamekeep;
+  keepavatar=value.avatar
   document.getElementById("userimage").src=value.avatar;
 
   show('Page2','Page1');
@@ -62,17 +63,22 @@ if (htmlEncode($("#password").val())==value.password &&htmlEncode($("#username")
     
         });
   }
+  else alert("please input username and password")
+}
 
 
 
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  document.getElementById("toshowform").style.display='none';
 
   document.getElementById("sel2").style.display='none';
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='none';
   document.getElementById("sel5").style.display='none';
+  document.getElementById("sel6").style.display='none';
+  document.getElementById("sel7").style.display='none';
   document.getElementById("hidenelemet").style.display = "none";
 
   addtasks();
@@ -186,7 +192,7 @@ $.each(data, function (key, value) {
   student+='<div class="message-box">';
   //CONSTRUCTION OF ROWS HAVING
   // DATA FROM JSON OBJECT
-  
+  keepidverryimp= value.id
   student += '<img src="'+value.avatar+'" alt="profile image">'+
   '<div class="message-content"> <div class="message-header">';
 
@@ -216,6 +222,8 @@ function sel1on(){
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='none';
   document.getElementById("sel5").style.display='none';
+  document.getElementById("sel6").style.display='none';
+  document.getElementById("sel7").style.display='none';
   document.getElementById("taskmess").style.display='block';
   refreshjob();
 }
@@ -226,6 +234,8 @@ function sel2on(){
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='none';
   document.getElementById("sel5").style.display='none';
+  document.getElementById("sel6").style.display='none';
+  document.getElementById("sel7").style.display='none';
   document.getElementById("taskmess").style.display='block';
   refreshvol();
 
@@ -236,6 +246,8 @@ function sel3on(){
   document.getElementById("sel3").style.display='block';
   document.getElementById("sel4").style.display='none';
   document.getElementById("sel5").style.display='none';
+  document.getElementById("sel6").style.display='none';
+  document.getElementById("sel7").style.display='none';
   document.getElementById("taskmess").style.display='block';
   refreshstud();
 }
@@ -245,6 +257,8 @@ function sel4on(){
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='block';
   document.getElementById("sel5").style.display='none';
+  document.getElementById("sel6").style.display='none';
+  document.getElementById("sel7").style.display='none';
   document.getElementById("taskmess").style.display='none';
 }
 function addnewthing(){
@@ -253,6 +267,28 @@ function addnewthing(){
   document.getElementById("sel3").style.display='none';
   document.getElementById("sel4").style.display='none';
   document.getElementById("sel5").style.display='block';
+  document.getElementById("sel6").style.display='none';
+  document.getElementById("sel7").style.display='none';
+  document.getElementById("taskmess").style.display='block';
+}
+function addnewthing2(){
+  document.getElementById("sel1").style.display='none';
+  document.getElementById("sel2").style.display='none';
+  document.getElementById("sel3").style.display='none';
+  document.getElementById("sel4").style.display='none';
+  document.getElementById("sel5").style.display='none';
+  document.getElementById("sel6").style.display='block';
+  document.getElementById("sel7").style.display='none';
+  document.getElementById("taskmess").style.display='block';
+}
+function addnewthing3(){
+  document.getElementById("sel1").style.display='none';
+  document.getElementById("sel2").style.display='none';
+  document.getElementById("sel3").style.display='none';
+  document.getElementById("sel4").style.display='none';
+  document.getElementById("sel5").style.display='none';
+  document.getElementById("sel6").style.display='none';
+  document.getElementById("sel7").style.display='block';
   document.getElementById("taskmess").style.display='block';
 }
 var score = parseInt(lastid);
@@ -443,8 +479,10 @@ $('#cccccc').append(jobtaskstatus);
 
 
 function addstudy(){
+console.log(htmlEncode($("#addddue").val()).slice(2,3));
+  if (htmlEncode($("#adddname").val())!='' && htmlEncode($("#adddtask").val())!='' &&  htmlEncode($("#addddue").val()).slice(2,3)=='.'){
 
-
+  
   var score222 = parseInt(keedimportanid);
   score222 ++;
 
@@ -459,20 +497,63 @@ function addstudy(){
   
 
 
-
+    
   //datachanger.username=this.htmlEncode($("#useraddform").val());
  
  // datachanger.password=htmlEncode($("#passaddform").val());
   axios.post(`https://62adc88a645d00a28aff9ee5.mockapi.io//study`, datachanger2222);
-
-  document.getElementById("sel1").style.display='none';
+  jobtaskstatus='';
+  document.getElementById("tohideform").style.display='none';
+  document.getElementById("toshowform").style.display='block';
+  for (let i = 0; i < 100; i++) {
+    $('#studdiv :first').detach();
+    $('#dddddd :first').detach();
+}
+student227 = '';
+  
+//sel3on();
+ /* document.getElementById("sel1").style.display='none';
   document.getElementById("sel2").style.display='none';
   document.getElementById("sel3").style.display='block';
   document.getElementById("sel4").style.display='none';
   document.getElementById("sel5").style.display='none';
+  document.getElementById("sel6").style.display='none';
+  document.getElementById("sel7").style.display='none';
   document.getElementById("taskmess").style.display='block';
-  refreshstud();
+  */
+ 
+}
+else alert("please input all tata required")
+}
+function addmess(){
 
+var score2232 = parseInt(keepidverryimp);
+  score2232 ++;
+  
+
+  var today1 = new Date();
+  var dd1 = String(today1.getDate()).padStart(2, '0');
+  var mm1 = String(today1.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy1 = today1.getFullYear();
+  
+  today1 = mm1 + '/' + dd1 + '/' + yyyy1;
+  var datachanger2222 = {
+    
+    name: usernamekeep,
+  avatar: keepavatar,
+  text: htmlEncode($("#addddmess").val()),
+date: today1,
+    id: '100'
+    }
+  
+console.log(datachanger2222);
+
+    
+  //datachanger.username=this.htmlEncode($("#useraddform").val());
+ 
+ // datachanger.password=htmlEncode($("#passaddform").val());
+  axios.post(`https://62adc88a645d00a28aff9ee5.mockapi.io//study`, datachanger2222);
+ 
 }
 
 
