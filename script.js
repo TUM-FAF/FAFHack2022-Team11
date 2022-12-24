@@ -560,7 +560,6 @@ console.log(datachanger2222);
  
  // datachanger.password=htmlEncode($("#passaddform").val());
   axios.post(`https://62adc88a645d00a28aff9ee5.mockapi.io//tasks`, datachanger2222);
-  cddchat();
   document.getElementById("needtohideit").style.display='none';
   document.getElementById("firstlyshowform").style.display='block';
 }
