@@ -72,6 +72,7 @@ if (htmlEncode($("#password").val())==value.password && htmlEncode($("#username"
 document.addEventListener('DOMContentLoaded', function () {
 
   document.getElementById("toshowform").style.display='none';
+  document.getElementById("firstlyshowform").style.display='none';
 
   document.getElementById("sel2").style.display='none';
   document.getElementById("sel3").style.display='none';
@@ -542,8 +543,8 @@ var score2232 = parseInt(keepidverryimp);
     name: usernamekeep,
   avatar: keepavatar,
   text: htmlEncode($("#addddmess").val()),
-date: today1,
-    id: '100'
+date: today1
+  
     }
   
 console.log(datachanger2222);
@@ -553,7 +554,8 @@ console.log(datachanger2222);
  
  // datachanger.password=htmlEncode($("#passaddform").val());
   axios.post(`https://62adc88a645d00a28aff9ee5.mockapi.io//study`, datachanger2222);
- 
+  document.getElementById("needtohideit").style.display='none';
+  document.getElementById("firstlyshowform").style.display='block';
 }
 
 
