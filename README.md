@@ -18,3 +18,6 @@ Key features:
 
 
 [https://mockapi.io/projects/62adc88a645d00a28aff9ee6](https://mockapi.io/projects/62adc88a645d00a28aff9ee6)
+
+
+[task presentation](https://docs.google.com/presentation/d/12Dh9T_-2NT34nAj45CoL6JDsntBIcDS0nLta0y4si-o/mobilepresent?slide=id.g1c06a27211d_0_0)
