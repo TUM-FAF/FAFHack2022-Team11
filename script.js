@@ -461,7 +461,13 @@ function addstudy(){
  // datachanger.password=htmlEncode($("#passaddform").val());
   axios.post(`https://62adc88a645d00a28aff9ee5.mockapi.io//study`, datachanger2222);
 
-
+  document.getElementById("sel1").style.display='none';
+  document.getElementById("sel2").style.display='none';
+  document.getElementById("sel3").style.display='block';
+  document.getElementById("sel4").style.display='none';
+  document.getElementById("sel5").style.display='none';
+  document.getElementById("taskmess").style.display='block';
+  refreshstud();
 
 }
 
